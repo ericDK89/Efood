@@ -1,42 +1,57 @@
 import { Link } from "react-router-dom";
-import food from "../../../assets/food.png";
 import star from "../../../assets/star.png";
 import { Tag } from "../../Tag";
 import * as S from "./styles";
 
-export const Card = () => {
+interface CardProps {
+  id?: string; // temporariamente opcional
+  image: string;
+  title: string;
+  rating: number;
+  description: string;
+  tags: string[];
+  site: string;
+}
+
+export const Card = ({
+  description,
+  image,
+  rating,
+  title,
+  tags,
+  site,
+}: CardProps) => {
   return (
     <S.CardContainer>
       <S.ImageContent>
-        <img className="nada" src={food} alt="Comida" />
+        <Link to="cart/">
+          {/* to={`cart/${id}`} <== código para abrir página baseado na id */}
+          <img className="nada" src={image} alt="Comida" />
+        </Link>
         <S.Infos>
-          <Tag fontSize="tag" padding="tag">
-            <span>Destaque da semana</span>
-          </Tag>
-          <Tag fontSize="tag" padding="tag">
-            <span>Italiana</span>
-          </Tag>
+          {tags.map((tag, i) => {
+            return (
+              <Tag fontSize="tag" padding="tag" key={i}>
+                <span>{tag}</span>
+              </Tag>
+            );
+          })}
         </S.Infos>
       </S.ImageContent>
 
       <div style={{ padding: "0.75rem 0.5rem" }}>
         <S.TitleContent>
-          <S.Title>La Dolce Vita Trattoria</S.Title>
+          <S.Title>{title}</S.Title>
           <S.StarContent>
-            <S.Title as="span">4.9</S.Title>
+            <S.Title as="span">{rating}</S.Title>
             <img src={star} alt="Estrela" />
           </S.StarContent>
         </S.TitleContent>
 
-        <S.Description>
-          A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você!
-          Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis,
-          tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e
-          sabor inesquecível. Peça já!
-        </S.Description>
+        <S.Description>{description}</S.Description>
 
         <Tag fontSize="link" padding="link">
-          <Link to="#" title="Clique aqui para saber mais">
+          <Link to={site} title="Clique aqui para saber mais" target="__blank">
             Saiba mais
           </Link>
         </Tag>

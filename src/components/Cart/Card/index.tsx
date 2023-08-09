@@ -1,16 +1,18 @@
-import pizza from "../../../assets/pizza.png";
 import { Button } from "../Button";
 import * as S from "./styles";
 
-export const Card = () => {
+interface CardProps {
+  image: string;
+  title: string;
+  description: string;
+}
+
+export const Card = ({ image, title, description }: CardProps) => {
   return (
     <S.Container>
-      <img src={pizza} alt="" />
-      <S.Title>Pizza Marguerita</S.Title>
-      <S.Description>
-        A clássica Marguerita: molho de tomate suculento, mussarela derretida,
-        manjericão fresco e um toque de azeite. Sabor e simplicidade!
-      </S.Description>
+      <img src={image} alt="" />
+      <S.Title>{title}</S.Title>
+      <S.Description>{description}</S.Description>
       <Button>
         <span>Adicionar ao carrinho</span>
       </Button>
