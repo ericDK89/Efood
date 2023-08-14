@@ -51,7 +51,7 @@ export const Card = ({
         <S.Description>{description}</S.Description>
 
         <Tag fontSize="link" padding="link">
-          <Link to={site} title="Clique aqui para saber mais" target="__blank">
+          <Link to={site} title="Clique aqui para saber mais">
             Saiba mais
           </Link>
         </Tag>

@@ -10,7 +10,7 @@ export const restaurants: Restaurants[] = [
       "A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!",
     image: food,
     tags: ["Destaque da semana", "Italiana"],
-    site: "https://www.ifood.com.br/",
+    site: "/food/1",
   },
   {
     id: "2",
@@ -20,7 +20,7 @@ export const restaurants: Restaurants[] = [
       "A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!",
     image: food,
     tags: ["Destaque da semana", "Italiana"],
-    site: "https://www.ifood.com.br/",
+    site: "/food/2",
   },
   {
     id: "3",
@@ -30,7 +30,7 @@ export const restaurants: Restaurants[] = [
       "A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!",
     image: food,
     tags: ["Destaque da semana", "Italiana"],
-    site: "https://www.ifood.com.br/",
+    site: "/food/3",
   },
   {
     id: "4",
@@ -40,6 +40,6 @@ export const restaurants: Restaurants[] = [
       "A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!",
     image: food,
     tags: ["Destaque da semana", "Italiana"],
-    site: "https://www.ifood.com.br/",
+    site: "/food/4",
   },
 ];
