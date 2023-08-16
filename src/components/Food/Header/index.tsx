@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
-import apresentacao from "../../../assets/apresentacao.png";
 import logo from "../../../assets/logo.png";
 import { Container } from "../../../styles";
 import * as S from "./styles";
 
-export const Header = () => {
+interface HeaderProps {
+  hero: string;
+}
+
+export const Header = ({ hero }: HeaderProps) => {
   return (
     <S.Container>
       <Container>
@@ -17,7 +20,7 @@ export const Header = () => {
         </S.Content>
       </Container>
 
-      <img className="apresentacao_img" src={apresentacao} alt="" />
+      <img className="apresentacao_img" src={hero} alt="" />
     </S.Container>
   );
 };

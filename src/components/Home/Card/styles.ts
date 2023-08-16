@@ -8,6 +8,11 @@ export const CardContainer = styled.section`
 
 export const ImageContent = styled.div`
   position: relative;
+
+  img {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
 `;
 
 export const Infos = styled.div`

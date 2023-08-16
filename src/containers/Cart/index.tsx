@@ -1,13 +1,29 @@
-import { Card } from "../../components/Cart/Card";
-import { Header } from "../../components/Cart/Header";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Card } from "../../components/Food/Card";
+import { Header } from "../../components/Food/Header";
 import { Container } from "../../styles";
-import { foods } from "../../utils/foods";
+import { api } from "../../utils/api";
 import * as S from "./styles";
 
 export const Cart = () => {
+  const [foods, setFoods] = useState<Foods[]>();
+  const [hero, setHero] = useState("");
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    api.get(`restaurantes/${id}`).then((res) => setFoods(res.data.cardapio));
+    api.get(`restaurantes/${id}`).then((res) => setHero(res.data.capa));
+  }, [id]);
+
+  if (!foods) {
+    return <h3>Carregando...</h3>;
+  }
+
   return (
     <div>
-      <Header />
+      <Header hero={hero} />
 
       <Container>
         <S.CartContainer>
@@ -15,9 +31,11 @@ export const Cart = () => {
             return (
               <Card
                 key={food.id}
-                title={food.title}
-                description={food.description}
-                image={food.image}
+                descricao={food.descricao}
+                foto={food.foto}
+                nome={food.nome}
+                porcao={food.porcao}
+                preco={food.preco}
               />
             );
           })}

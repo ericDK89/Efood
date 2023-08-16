@@ -3,55 +3,36 @@ import star from "../../../assets/star.png";
 import { Tag } from "../../Tag";
 import * as S from "./styles";
 
-interface CardProps {
-  id?: string; // temporariamente opcional
-  image: string;
-  title: string;
-  rating: number;
-  description: string;
-  tags: string[];
-  site: string;
-}
+interface CardProps extends Restaurants {}
 
-export const Card = ({
-  description,
-  image,
-  rating,
-  title,
-  tags,
-  site,
-}: CardProps) => {
+export const Card = (props: CardProps) => {
   return (
     <S.CardContainer>
       <S.ImageContent>
-        <Link to="cart/">
-          {/* to={`cart/${id}`} <== código para abrir página baseado na id */}
-          <img className="nada" src={image} alt="Comida" />
+        <Link to={`food/${props.id}`} title="Clique aqui para saber mais">
+          <img className="nada" src={props.capa} alt="Comida" />
         </Link>
+
         <S.Infos>
-          {tags.map((tag, i) => {
-            return (
-              <Tag fontSize="tag" padding="tag" key={i}>
-                <span>{tag}</span>
-              </Tag>
-            );
-          })}
+          <Tag fontSize="tag" padding="tag">
+            <span>{props.tipo}</span>
+          </Tag>
         </S.Infos>
       </S.ImageContent>
 
       <div style={{ padding: "0.75rem 0.5rem" }}>
         <S.TitleContent>
-          <S.Title>{title}</S.Title>
+          <S.Title>{props.titulo}</S.Title>
           <S.StarContent>
-            <S.Title as="span">{rating}</S.Title>
+            <S.Title as="span">{props.avaliacao}</S.Title>
             <img src={star} alt="Estrela" />
           </S.StarContent>
         </S.TitleContent>
 
-        <S.Description>{description}</S.Description>
+        <S.Description>{props.descricao}</S.Description>
 
         <Tag fontSize="link" padding="link">
-          <Link to={site} title="Clique aqui para saber mais">
+          <Link to={`food/${props.id}`} title="Clique aqui para saber mais">
             Saiba mais
           </Link>
         </Tag>
