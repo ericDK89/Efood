@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card } from "../../components/Food/Card";
 import { Header } from "../../components/Food/Header";
+import { Sidebar } from "../../components/Sidebar";
 import { Container } from "../../styles";
 import { api } from "../../utils/api";
 import * as S from "./styles";
@@ -9,6 +10,15 @@ import * as S from "./styles";
 export const Cart = () => {
   const [foods, setFoods] = useState<Foods[]>();
   const [hero, setHero] = useState("");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleOpenSidebar = () => {
+    setIsSidebarOpen(true);
+  };
+
+  const handleCloseSidebar = () => {
+    setIsSidebarOpen(false);
+  };
 
   const { id } = useParams();
 
@@ -23,7 +33,7 @@ export const Cart = () => {
 
   return (
     <div>
-      <Header hero={hero} />
+      <Header hero={hero} handleOpenSidebar={handleOpenSidebar} />
 
       <Container>
         <S.CartContainer>
@@ -36,11 +46,17 @@ export const Cart = () => {
                 nome={food.nome}
                 porcao={food.porcao}
                 preco={food.preco}
+                id={food.id}
               />
             );
           })}
         </S.CartContainer>
       </Container>
+
+      <div style={isSidebarOpen ? { display: "block" } : { display: "none" }}>
+        <Sidebar />
+        <S.Overlay onClick={handleCloseSidebar} />
+      </div>
     </div>
   );
 };

@@ -24,4 +24,9 @@ export const Text = styled.h3`
   color: ${defaultTheme["pink-500"]};
   font-size: 1.125rem;
   font-weight: 900;
+
+  span {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `;
