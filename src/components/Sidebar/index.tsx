@@ -50,7 +50,7 @@ export const Sidebar = () => {
         <span>{formatPrice(getFullPrice())}</span>
       </S.Info>
 
-      <Button>
+      <Button handleClick={() => alert("Continuar comprando")}>
         <span>Continuar com a entrega</span>
       </Button>
     </S.SidebarContainer>
