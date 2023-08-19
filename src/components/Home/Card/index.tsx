@@ -3,7 +3,7 @@ import star from "../../../assets/star.png";
 import { Tag } from "../../Tag";
 import * as S from "./styles";
 
-interface CardProps extends Restaurants {}
+type CardProps = Omit<Restaurants, "cardapio">;
 
 export const Card = (props: CardProps) => {
   return (
