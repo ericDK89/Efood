@@ -7,14 +7,7 @@ import { Button } from "../Button";
 import { ButtonContainer } from "../Button/styles";
 import * as S from "./styles";
 
-interface CardProps {
-  descricao: string;
-  foto: string;
-  nome: string;
-  porcao: string;
-  preco: number;
-  id: number;
-}
+interface CardProps extends Food {}
 
 export const Card = (props: CardProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

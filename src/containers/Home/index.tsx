@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Card } from "../../components/Home/Card";
 import { Header } from "../../components/Home/Header";
 import { Container } from "../../styles";
@@ -6,13 +5,9 @@ import { api } from "../../utils/api";
 import * as S from "./styles";
 
 export const Home = () => {
-  const [restaurants, setRestaurants] = useState<Restaurants[]>();
+  const { data: restaurants, isLoading } = api.useGetRestaurantsQuery();
 
-  useEffect(() => {
-    api.get("restaurantes").then((res) => setRestaurants(res.data));
-  }, []);
-
-  if (!restaurants) {
+  if (isLoading) {
     return <h3>Carregando...</h3>;
   }
 
@@ -22,7 +17,7 @@ export const Home = () => {
 
       <Container>
         <S.HomeContainer>
-          {restaurants.map((restaurant) => {
+          {restaurants!.map((restaurant) => {
             return (
               <Card
                 key={restaurant.id}

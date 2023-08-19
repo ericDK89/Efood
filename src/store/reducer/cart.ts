@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ICart {
-  items: Foods[];
+  items: Food[];
 }
 
 const initialState: ICart = {
@@ -12,7 +12,7 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<Foods>) => {
+    add: (state, action: PayloadAction<Food>) => {
       const food = action.payload;
 
       const alreadyAdded = state.items.find(
@@ -22,7 +22,7 @@ export const cartSlice = createSlice({
       if (food && !alreadyAdded) {
         state.items.push(food);
       } else {
-        alert("Erro");
+        alert("Prato já adicionado.");
       }
     },
     remove: (state, action: PayloadAction<number>) => {
