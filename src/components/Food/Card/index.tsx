@@ -29,7 +29,7 @@ export const Card = (props: CardProps) => {
             ? props.descricao.slice(0, 95).concat("...")
             : props.descricao}
         </S.Description>
-        <Button handleClick={handleAddToCart}>
+        <Button handleClick={() => setIsModalOpen(true)}>
           <span>Adicionar ao carrinho</span>
         </Button>
       </S.Container>
