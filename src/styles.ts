@@ -5,6 +5,8 @@ export const defaultTheme = {
   "pink-100": "#fff8f2",
   "pink-300": "#ffebd9",
   "pink-500": "#e66767",
+  "black-500": "#4B4B4B",
+  "red-500": "#720915",
 };
 
 export const GlobalStyles = createGlobalStyle`
@@ -13,6 +15,22 @@ export const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+
+    
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
   }
 
   body {

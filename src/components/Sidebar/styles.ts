@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { defaultTheme } from "../../styles";
+import { CheckoutContainer } from "../Checkout/styles";
 import { ButtonContainer } from "../Food/Button/styles";
 
 export const SidebarContainer = styled.aside`
@@ -18,10 +19,14 @@ export const SidebarContainer = styled.aside`
 
   display: block;
 
+  ${CheckoutContainer} {
+    margin-bottom: 24px;
+  }
+
   ${ButtonContainer} {
-    margin-top: 1.25rem;
     padding: 0.25rem;
     width: 100%;
+    margin-bottom: 0.5rem;
 
     font-weight: 700;
     font-size: 0.875rem;
@@ -84,10 +89,19 @@ export const Info = styled.div`
   justify-content: space-between;
 
   margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
 
   strong,
   span {
     color: ${defaultTheme["white-100"]};
     font-size: 0.875rem;
   }
+`;
+
+export const EmptyCartText = styled.p`
+  width: 240px;
+  margin: 0 auto;
+  font-size: 0.875rem;
+  color: ${defaultTheme["white-100"]};
+  text-align: center;
 `;

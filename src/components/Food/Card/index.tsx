@@ -16,6 +16,7 @@ export const Card = (props: CardProps) => {
 
   const handleAddToCart = () => {
     dispatch(add(props));
+    setIsModalOpen(false);
   };
 
   return (

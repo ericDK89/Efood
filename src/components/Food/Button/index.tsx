@@ -2,9 +2,18 @@ import * as S from "./styles";
 
 interface ButtonProps {
   children: JSX.Element;
-  handleClick: () => void;
+  handleClick?: () => void;
+  type?: "button" | "submit";
+  isDisabled?: boolean;
 }
 
-export const Button = ({ children, handleClick }: ButtonProps) => (
-  <S.ButtonContainer onClick={handleClick}>{children}</S.ButtonContainer>
+export const Button = ({
+  children,
+  handleClick,
+  type = "button",
+  isDisabled = false,
+}: ButtonProps) => (
+  <S.ButtonContainer type={type} onClick={handleClick} disabled={isDisabled}>
+    {children}
+  </S.ButtonContainer>
 );

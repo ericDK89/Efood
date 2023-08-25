@@ -48,7 +48,7 @@ export const Cart = () => {
       </Container>
 
       <div style={isSidebarOpen ? { display: "block" } : { display: "none" }}>
-        <Sidebar />
+        <Sidebar handleCloseSidebar={handleCloseSidebar} />
         <S.Overlay onClick={handleCloseSidebar} />
       </div>
     </div>
