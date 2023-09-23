@@ -31,6 +31,9 @@ $ npm install
 $ npm run dev
 ```
 
+## 🌐 Visite o site
+[Efood](https://modulo-35-git-main-ericdk89.vercel.app/)
+
 ## 💻 Projeto
 
 Projeto de um E-commerce de comida, onde temos vários restaurantes e cada restaurante possuem um cardápio. Podemos adicionar as comidas e finalizamos o pedido através de um formulario criado utilizando o Formik. 
